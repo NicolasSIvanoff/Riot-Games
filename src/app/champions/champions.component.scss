@@ -1,8 +1,5 @@
 .base {
   width: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
 }
 .background {
   background-image: url("../../assets/img/background.jpg");
@@ -25,4 +22,18 @@ img {
 }
 #ChampImg:hover {
   transform: scale(1.1);
+}
+
+.imgSkeleton {
+  width: 80%;
+  display: flex;
+  margin: 10px 0 10px 0;
+}
+.blourSkeleton {
+  background-color: #f5f5f51f;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
 }

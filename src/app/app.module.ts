@@ -1,3 +1,4 @@
+import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,14 +12,20 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { ChampionsEffects } from './store/effects/champions.effects';
 import { reducers } from './store/reducers/root.reducers';
+import { NavbarComponent } from './navbar/navbar.component';
+import { QueryComponent } from './query/query.component';
+import { SkeletonLoaderModule } from './skeleton-loader/skeleton-loader.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChampionsComponent,
+    NavbarComponent,
+    QueryComponent,
   ],
   imports: [
     BrowserModule,
+    SkeletonLoaderModule,
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {}),

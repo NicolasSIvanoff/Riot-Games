@@ -10,6 +10,11 @@ export const loadChampionsSuccess = createAction(
   props<{ data: ChampionsModel }>()
 );
 
+export const loadStatus = createAction(
+  "[LoadStatus] - Load",
+  props<{ load: boolean }>()
+);
+
 export const loadChampionssFailure = createAction(
   '[Champions] Load Championss Failure',
   props<{ error: any }>()

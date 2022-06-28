@@ -2,10 +2,14 @@
   <div class="background">
     <div class="blour">
       <div class="champions" *ngFor="let arrays of array">
-        <!-- {{ arrays[1].name }}
-        {{ arrays[1].key }} -->
-        <!-- {{ arrays[1].image.group }} -->
+        <app-skeleton-loader
+          *ngIf="!load"
+          class="imgSkeleton"
+          Cwidth="320"
+          Cheight="450"
+        ></app-skeleton-loader>
         <img
+          *ngIf="load"
           src="../../assets/img/champion/loading/{{ arrays[1].image.full }}"
           alt=""
           id="ChampImg"

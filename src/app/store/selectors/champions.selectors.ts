@@ -9,6 +9,10 @@ export const selectChampionsSuccess = createSelector(
   selectChampionsState,
   state => state.champions,
 );
+export const selectLoad = createSelector(
+  selectChampionsState,
+  state => state.load,
+);
 export const selectChampionsError = createSelector(
   selectChampionsState,
   state => state.error);

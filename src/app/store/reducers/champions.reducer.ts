@@ -7,11 +7,13 @@ export const championsFeatureKey = 'champions';
 export interface StateChampions {
   champions: ChampionsModel | null;
   error: string;
+  load: boolean;
 }
 
 export const initialState: StateChampions = {
   champions: null,
-  error: ''
+  error: '',
+  load: false
 };
 
 export const reducer = createReducer(
@@ -31,5 +33,11 @@ export const reducer = createReducer(
       error: action.error
     }
   }),
+  on(
+    ChampionsActions.loadStatus,
+    (state, action): StateChampions => {
+      return { ...state, load: action.load };
+    }
+  )
 
 );
