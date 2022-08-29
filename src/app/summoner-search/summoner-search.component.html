@@ -1,0 +1,7 @@
+<p>summoner-search works!</p>
+<span>consulte sua conta!</span>
+<input type="text" (blur)="dispatchSearch($event)">
+<button (click)="searchUser()">Buscar</button>
+<div *ngIf="resultUser$ | async as result">
+  <span>{{result}}</span>
+</div>
