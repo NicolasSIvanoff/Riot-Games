@@ -1,7 +1,31 @@
-<p>summoner-search works!</p>
-<span>consulte sua conta!</span>
-<input type="text" (blur)="dispatchSearch($event)">
-<button (click)="searchUser()">Buscar</button>
-<div *ngIf="resultUser$ | async as result">
-  <span>{{result}}</span>
+<div id="summoner-search">
+  <div class="container">
+    <input type="text" class="input" (blur)="dispatchSearch($event)" placeholder="Consulte sua conta">
+    <button class="search" (click)="getMainUser(matchesID)">Buscar</button>
+  </div>
+
+  <div class="data-user" *ngIf="resultUser">
+    <div class="user-and-rank">
+      <div class="field-user">
+        <div class="icon-level">
+          <img src="http://ddragon.leagueoflegends.com/cdn/12.16.1/img/profileicon/{{resultUser.profileIconId}}.png"
+            alt="">
+          <div class="position-level">
+            <span class="level-user">{{resultUser.summonerLevel}}</span>
+          </div>
+        </div>
+        <div class="info-user">
+          <span class="name-user">{{resultUser.name}}</span>
+
+        </div>
+      </div>
+      <div class="rank" *ngIf="rankUser">
+        <img src=" ../../assets/ranks/Emblem_{{rankUser[0].tier}}.png" alt="">
+        <span>{{rankUser[0].tier}} {{rankUser[0].rank}}</span>
+        <span>{{rankUser[0].leaguePoints}} PDLs</span>
+      </div>
+    </div>
+    <app-historic-user>
+    </app-historic-user>
+  </div>
 </div>

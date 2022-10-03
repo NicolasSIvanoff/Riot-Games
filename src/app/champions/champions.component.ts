@@ -1,3 +1,4 @@
+import { ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { selectChampionsSuccess, selectLoad } from './../store/selectors/champions.selectors';
 import { Observable, Subscription } from 'rxjs';
 import { RiotService } from './../service/riot.service';
@@ -13,12 +14,14 @@ export class ChampionsComponent implements OnInit {
   public championsStore$!: Observable<any>;
   public championsStore!: any | null;
   public subscription: Subscription[] = [];
-  public champions: any;
   public array?: Array<any>;
-  public tudo: any;
+  public active: boolean = true;
+  public setChamps: any = [];
   public load: boolean = false;
   public load$!: Observable<boolean>;
-  constructor(public serv: RiotService, public store: Store) {
+  public first: number = 0;
+  public last: number = 4;
+  constructor(public serv: RiotService, public store: Store, private viewContainerRef: ViewContainerRef, private cfr: ComponentFactoryResolver) {
     this.championsStore$ = this.store.select(selectChampionsSuccess);
     this.load$ = this.store.select(selectLoad);
 
@@ -27,40 +30,42 @@ export class ChampionsComponent implements OnInit {
   ngOnInit(): void {
     this.subscription.push(
       this.load$.subscribe(data => {
-        this.load = false;
-        console.log('data', data)
+        this.load = data;
       }))
-    this.getApiChampions();
+    this.subscription.push(
+      this.championsStore$.subscribe(data => {
+        this.championsStore = data;
+        console.log('champ', this.championsStore$)
+        console.log('champ', data)
+        if (this.championsStore) {
+          this.setChamps = this.championsStore.slice(0, 4);
+        }
+      }),
+    );
     this.getChampions();
+
   }
+
   public getChampions(): void {
     this.store.dispatch(actionsChamp.loadChampions());
   }
-  public getApiChampions(): void {
-    this.subscription.push(
-      this.championsStore$.subscribe(data => {
-        if (data != null) {
-          this.championsStore = data.data
-          console.log(this.championsStore)
-          let result = [];
-          let key: any;
-          for (key of Object.keys(this.championsStore)) {
-            result.push(
-              [key, this.championsStore[key]],
-            )
-          }
-          this.array = result;
-          for (let i = 0; i < this.array.length; i++) {
-            this.tudo = this.array[i][1].image.full;
-            console.log(this.tudo)
-            this.tudo = this.tudo.replace('.png', '_0.jpg');
-            console.log(this.tudo)
-            this.array[i][1].image.full = this.tudo;
 
-          }
-        }
-      }))
+  async getLazy() {
+    this.viewContainerRef.clear();
+    const { lazyChampionsComponent } = await import('./lazyChampions.component');
+    this.viewContainerRef.createComponent(
+      this.cfr.resolveComponentFactory(lazyChampionsComponent)
+    );
+    this.active = !this.active;
   }
+  public getPrevious(): void {
+    if (this.championsStore) {
+      this.setChamps = this.championsStore.slice(this.first - 4, this.last - 4);
+      console.log('champs', this.setChamps)
+    }
+
+  }
+
 }
 
 

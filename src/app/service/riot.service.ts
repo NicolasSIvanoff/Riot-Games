@@ -11,8 +11,9 @@ export class RiotService {
 
   constructor(private http: HttpClient) { }
 
-  getChampions(): Observable<ChampionsModel> {
-    return this.http.get<ChampionsModel>('http://ddragon.leagueoflegends.com/cdn/12.11.1/data/pt_BR/champion.json')
+  getChampions(): Observable<any> {
+    return this.http.get<any>('http://ddragon.leagueoflegends.com/cdn/12.11.1/data/pt_BR/champion.json');
 
   }
+
 }

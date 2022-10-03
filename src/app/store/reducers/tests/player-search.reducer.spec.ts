@@ -1,6 +1,6 @@
-import { reducer, initialState } from './champions.reducer';
+import { reducer, initialState } from '../player-search.reducer';
 
-describe('Champions Reducer', () => {
+describe('PlayerSearch Reducer', () => {
   describe('an unknown action', () => {
     it('should return the previous state', () => {
       const action = {} as any;

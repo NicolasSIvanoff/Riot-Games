@@ -1,0 +1,161 @@
+#summoner-search {
+  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  .container {
+    height: 35%;
+    background-image: url("../../assets/img_banner.webp");
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .input {
+      max-width: 300px;
+      height: 50px;
+      border-radius: 30px;
+      padding-left: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    .search {
+      max-width: 80px;
+      height: 50px;
+      border-radius: 30px;
+      background-color: rgb(42, 42, 240);
+      border: 1px solid #f5f5f5;
+      color: #f5f5f5;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+  .data-user {
+    width: 80%;
+    height: 100%;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border-radius: 5px;
+    margin-top: 2%;
+    padding: 2%;
+
+    .user-and-rank {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      .field-user {
+        max-width: 170px;
+        .icon-level {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        }
+        .info-user {
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          margin-bottom: 5px;
+          width: 20%;
+          margin-left: 15px;
+
+          .name-user {
+            font-size: 25px;
+            font-family: sans-serif;
+            color: rgb(187, 3, 3);
+          }
+        }
+      }
+      .rank {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+    .historic {
+      width: 80%;
+      height: 90%;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 5%;
+      .field-equal {
+        .detail-result {
+          height: 100%;
+          display: flex;
+          padding-top: 10px;
+          flex-direction: column;
+          margin-left: 3%;
+          .result {
+            font-family: "FOCO, sans-serif";
+          }
+        }
+        .champ-data {
+          .img-icon {
+            max-width: 55px;
+            margin-left: 5%;
+          }
+        }
+      }
+      .field-match {
+        width: 90%;
+        height: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 2%;
+        border: 1px solid rgb(6, 190, 98);
+        background-color: rgb(234, 248, 234);
+        border-radius: 5px;
+      }
+      .field-matchLose {
+        width: 90%;
+        height: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 2%;
+        border: 1px solid rgb(187, 25, 25);
+        background-color: rgb(245, 227, 227);
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+span {
+  overflow-wrap: break-word;
+}
+img {
+  max-width: 100px;
+  border-radius: 10px;
+}
+.position-level {
+  margin-top: -10px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.level-user {
+  display: inline-block;
+  font-size: 14px;
+  font-family: sans-serif;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+#summoner-search,
+.container,
+.input,
+.search,
+.field-user,
+.img-icon,
+img {
+  width: 100%;
+  display: flex;
+}

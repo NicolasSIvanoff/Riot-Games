@@ -1,6 +1,7 @@
-import { ChampionsModel } from './../../service/models/champions.model';
+import { StateUserSearch } from './player-search.reducer';
 import { StateChampions } from './champions.reducer';
 
 export interface AppState {
-  champions: StateChampions
+  champions: StateChampions,
+  playerSearch: StateUserSearch
 };

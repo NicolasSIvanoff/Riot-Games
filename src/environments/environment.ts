@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  KeyValue: 'RGAPI-003ee0f9-d9d2-4d4d-9e09-ca88bbde93c2'
 };
 
 /*

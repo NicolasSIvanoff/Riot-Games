@@ -1,19 +1,23 @@
-<div class="base">
-  <div class="background">
-    <div class="blour">
-      <div class="champions" *ngFor="let arrays of array">
-        <app-skeleton-loader
+<div *ngIf="active">
+  <div class="base">
+    <div class="background">
+      <div class="blour">
+        <button class="next" (click)="getPrevious()">Anterior</button>
+        <div class="champions" *ngFor="let arrays of setChamps">
+          <!-- <app-skeleton-loader
           *ngIf="!load"
           class="imgSkeleton"
           Cwidth="320"
           Cheight="450"
-        ></app-skeleton-loader>
-        <img
-          *ngIf="load"
-          src="../../assets/img/champion/loading/{{ arrays[1].image.full }}"
-          alt=""
-          id="ChampImg"
-        />
+        ></app-skeleton-loader> -->
+          <div class="imgChamps">
+
+            <img *ngIf="load" src="../../assets/img/champion/loading/{{ arrays[1].image.full }}" alt="" id="ChampImg" />
+            <div class="nameChamps"><span> {{arrays[0]}}</span></div>
+          </div>
+
+        </div>
+        <button class="next" (click)="getLazy()">Próximo</button>
       </div>
     </div>
   </div>

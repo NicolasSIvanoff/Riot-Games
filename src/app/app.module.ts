@@ -15,22 +15,33 @@ import { reducers } from './store/reducers/root.reducers';
 import { NavbarComponent } from './navbar/navbar.component';
 import { QueryComponent } from './query/query.component';
 import { SkeletonLoaderModule } from './skeleton-loader/skeleton-loader.module';
+import { SummonerSearchComponent } from './summoner-search/summoner-search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PlayerSearchEffects } from './store/effects/player-search.effects';
+import { MomentModule } from 'ngx-moment';
+import { HistoricUserComponent } from './historic-user/historic-user.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     ChampionsComponent,
     NavbarComponent,
     QueryComponent,
-  ],
+    SummonerSearchComponent,
+      HistoricUserComponent
+   ],
   imports: [
+    MomentModule,
     BrowserModule,
+    FormsModule,
     SkeletonLoaderModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {}),
     EffectsModule.forRoot([
-      ChampionsEffects
+      ChampionsEffects,
+      PlayerSearchEffects
     ]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],

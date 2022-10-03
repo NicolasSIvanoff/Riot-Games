@@ -7,7 +7,7 @@ export const loadChampions = createAction(
 
 export const loadChampionsSuccess = createAction(
   '[Champions] Load Championss Success',
-  props<{ data: ChampionsModel }>()
+  props<{ data: any }>()
 );
 
 export const loadStatus = createAction(

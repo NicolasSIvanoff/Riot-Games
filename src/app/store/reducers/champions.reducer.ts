@@ -5,7 +5,7 @@ import * as ChampionsActions from '../actions/champions.actions';
 export const championsFeatureKey = 'champions';
 
 export interface StateChampions {
-  champions: ChampionsModel | null;
+  champions: any | null;
   error: string;
   load: boolean;
 }
@@ -19,8 +19,9 @@ export const initialState: StateChampions = {
 export const reducer = createReducer(
   initialState,
 
-  on(ChampionsActions.loadChampions, state => state),
+
   on(ChampionsActions.loadChampionsSuccess, (state, action): StateChampions => {
+    console.log(action.data);
     return {
       ...state,
       champions: action.data,

@@ -1,0 +1,18 @@
+<!-- <div class="historic" *ngIf="resultMainUser.length > 1">
+  <div *ngFor="let match of matchesID| slice:0:5; let i = index"
+    [ngClass]=" resultMainUser[i].win ? 'field-equal field-match' : 'field-equal field-matchLose'">
+    <div class="detail-result">
+      <span class="result" *ngIf="resultMainUser[i].win">Vitória</span>
+      <span class="result" *ngIf="!resultMainUser[i].win">Derrota</span>
+      <span>{{ match.info.gameDuration * 1000 | date: 'mm:ss' }}</span>
+    </div>
+    <div class="champ-data">
+      <img class="img-icon"
+        src="http://ddragon.leagueoflegends.com/cdn/12.17.1/img/champion/{{resultMainUser[i].championName}}.png" alt="">
+      <div class="position-level">
+        <span class="level-user">{{resultMainUser[i].champLevel}}</span>
+      </div>
+    </div>
+  </div>
+</div> -->
+<pre>{{ historicUserData$ | async }}</pre>

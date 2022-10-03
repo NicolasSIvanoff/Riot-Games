@@ -5,6 +5,7 @@ import { catchError, map, mergeMap } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
 import * as ChampionsActions from '../actions/champions.actions';
 import { Store } from '@ngrx/store';
+import { Modify } from 'src/shared/utils/modify';
 
 
 @Injectable()
@@ -17,11 +18,11 @@ export class ChampionsEffects {
         this.serv.getChampions().pipe(
           map(data => {
             this.store.dispatch(ChampionsActions.loadStatus({ load: true }));
-            return ChampionsActions.loadChampionsSuccess({ data })
+            return ChampionsActions.loadChampionsSuccess({ data: this.modify.getChampions(data) });
           }),
         )
       ),
       catchError(error => of(ChampionsActions.loadChampionssFailure({ error }))))
   )
-  constructor(private actions$: Actions, private serv: RiotService, private store: Store) { }
+  constructor(private actions$: Actions, private serv: RiotService, private store: Store, private modify: Modify) { }
 };
