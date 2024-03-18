@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  KeyValue: 'RGAPI-003ee0f9-d9d2-4d4d-9e09-ca88bbde93c2'
+  KeyValue: 'RGAPI-1e55a8b7-012b-4998-a96d-2364a731db20'
 };
 
 /*

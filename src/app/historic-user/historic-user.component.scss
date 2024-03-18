@@ -1,0 +1,50 @@
+.historic {
+  width: 80%;
+  height: 90%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5%;
+  .field-equal {
+    .detail-result {
+      height: 100%;
+      display: flex;
+      padding-top: 10px;
+      flex-direction: column;
+      margin-left: 3%;
+      .result {
+        font-family: "FOCO, sans-serif";
+      }
+    }
+    .champ-data {
+      .img-icon {
+        max-width: 55px;
+        margin-left: 5%;
+      }
+    }
+  }
+  .field-match {
+    width: 90%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 2%;
+    border: 1px solid rgb(6, 190, 98);
+    background-color: rgb(234, 248, 234);
+    border-radius: 5px;
+  }
+  .field-matchLose {
+    width: 90%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 2%;
+    border: 1px solid rgb(187, 25, 25);
+    background-color: rgb(245, 227, 227);
+    border-radius: 5px;
+  }
+}

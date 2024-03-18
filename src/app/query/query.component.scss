@@ -22,3 +22,39 @@ span {
   width: 100%;
   font-size: 20px;
 }
+.btn {
+  width: 100%;
+  max-width: 400px;
+}
+@media (max-width: 320px) {
+  .champions {
+    border: 1px solid rgb(0, 255, 98);
+  }
+  .btn {
+    width: 100%;
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 480px) and (min-width: 321px) {
+  .champions {
+    border: 1px solid yellow;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+  .champions {
+    border: 1px solid rgb(255, 8, 0);
+  }
+}
+
+@media (max-width: 960px) and (min-width: 769px) {
+  .champions {
+    border: 1px solid rgb(76, 5, 241);
+  }
+}
+@media (max-width: 1200px) and (min-width: 961px) {
+  .champions {
+    border: 1px solid rgb(253, 8, 172);
+  }
+}

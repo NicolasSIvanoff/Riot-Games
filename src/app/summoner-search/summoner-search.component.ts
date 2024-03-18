@@ -18,9 +18,9 @@ export class SummonerSearchComponent implements OnInit {
   historicUser!: any[];
   resultUser!: any;
   rankUser!: RankUserModel[];
-  matchesID: any[] = [];
+
   mainUser: any[] = [];
-  resultMainUser: any[] = [];
+
   indexPricipal!: number;
   subscription: Subscription[] = [];
   constructor(public store: Store, private serv: PlayerSearchService) {
@@ -49,25 +49,10 @@ export class SummonerSearchComponent implements OnInit {
   getHistoricUser(puuid: string): void {
     this.serv.getHistoric(puuid).subscribe(data => {
       this.historicUser = data;
-      this.getMatchesUser(this.historicUser)
+      console.log('historico do ts principal', this.historicUser)
     })
   }
-  getMatchesUser(matchid: Array<any>): void {
-    console.log("ala", matchid)
-    for (let i = 0; i < matchid.length; i++) {
-      this.serv.getMatch(matchid[i]).subscribe(data => {
-        this.matchesID.push(data)
-      })
-    }
-    this.getMainUser(this.matchesID);
-    console.log('ALE')
-  }
-  getMainUser(matchesId: Array<any>): void {
-    for (let i = 0; i < matchesId.length; i++) {
-      let index = matchesId[i].info.participants.findIndex((x: any) => x.puuid === this.resultUser.puuid)
-      this.resultMainUser.push(matchesId[i].info.participants[index])
-    }
-  }
+
 
 }
 

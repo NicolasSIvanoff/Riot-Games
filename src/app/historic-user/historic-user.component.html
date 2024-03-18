@@ -1,4 +1,4 @@
-<!-- <div class="historic" *ngIf="resultMainUser.length > 1">
+<div class="historic" *ngIf="resultMainUser.length > 1">
   <div *ngFor="let match of matchesID| slice:0:5; let i = index"
     [ngClass]=" resultMainUser[i].win ? 'field-equal field-match' : 'field-equal field-matchLose'">
     <div class="detail-result">
@@ -14,5 +14,4 @@
       </div>
     </div>
   </div>
-</div> -->
-<pre>{{ historicUserData$ | async }}</pre>
+</div>

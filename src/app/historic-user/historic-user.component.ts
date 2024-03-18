@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { PlayerSearchService } from '../service/playerSearch.service';
+import { RiotService } from '../service/riot.service';
 import { selectPlayerSearchSuccess } from '../store/selectors/player-search.selectors';
 
 @Component({
@@ -11,30 +12,33 @@ import { selectPlayerSearchSuccess } from '../store/selectors/player-search.sele
 })
 export class HistoricUserComponent implements OnInit {
 
-  historicUserData$: Observable<Array<any>>;
-  historicUser!: Array<any>;
-  subscription: Subscription[] = [];
-
-  constructor(public store: Store, private serv: PlayerSearchService) {
-    this.historicUserData$ = this.store.select(selectPlayerSearchSuccess);
-
+  @Input() public historicUserData!: any;
+  @Input() public resultUserData!: any;
+  matchesID: any[] = [];
+  resultMainUser: any[] = [];
+  constructor(public serv: PlayerSearchService) {
   }
 
   ngOnInit() {
-    this.suspeito();
-    console.log('resultUser', this.historicUserData$)
+    this.duvido();
   }
-  suspeito() {
-    setTimeout(() => {
-      this.subscription.push(
-        this.historicUserData$.subscribe(data => {
-          this.historicUser = data;
-
-          console.log('resultUser', data);
-        }
-        ))
-      console.log('resultUser$', this.historicUserData$)
-    }, 3000)
+  duvido() {
+    this.getMatchesUser(this.historicUserData)
+  }
+  getMatchesUser(matchid: Array<any>): void {
+    for (let i = 0; i < matchid.length; i++) {
+      this.serv.getMatch(matchid[i]).subscribe(data => {
+        this.matchesID.push(data)
+      })
+    }
+    this.getMainUser(this.matchesID);
+  }
+  getMainUser(matchesId: Array<any>): void {
+    for (let i = 0; i < matchesId.length; i++) {
+      let index = matchesId[i].info.participants.findIndex((x: any) => x.puuid === this.resultUserData.puuid)
+      console.log('dps', this.resultMainUser)
+      this.resultMainUser.push(matchesId[i].info.participants[index])
+    }
   }
 }
 

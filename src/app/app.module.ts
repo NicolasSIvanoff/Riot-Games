@@ -22,14 +22,14 @@ import { MomentModule } from 'ngx-moment';
 import { HistoricUserComponent } from './historic-user/historic-user.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     ChampionsComponent,
     NavbarComponent,
     QueryComponent,
     SummonerSearchComponent,
-      HistoricUserComponent
-   ],
+    HistoricUserComponent
+  ],
   imports: [
     MomentModule,
     BrowserModule,
